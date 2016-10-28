@@ -5,20 +5,30 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="icon" href="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTEGK4hYeA4TnyTajY4DTWhdaJxNb2mDb8VFde0LXNRGSqQSf8m">
 </head>
 <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
     <a class="navbar-brand" href="<%= root_path %>">Coder Ticket</a>
     <ul class="nav navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sign Up</a>
-      </li>
+      <% if user_signed_in? %>
+        <%= link_to "Event Tickets", event_tickets_path, class: 'nav-link' %>
+        <%= link_to "Log In", new_user_session_path, class: 'nav-link' %>
+
+        <%= link_to "Log Out", destroy_user_session_path, class: 'nav-link' %>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Log In", new_user_session_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link'  %>
+        </li>
+        <% end %>
     </ul>
-  </nav>  
+  </nav>
 
 <%= yield %>
 
