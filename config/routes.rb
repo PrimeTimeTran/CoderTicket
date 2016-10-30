@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get "upcoming" => "events#index"
   resources :tickets
 
   devise_for :users
