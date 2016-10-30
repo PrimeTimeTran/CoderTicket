@@ -21,11 +21,34 @@
   </div>
 
   <%= form_for @ticket do |f| %>
-    <%= f.label :ticket_type_id %>
-    <%= f.select :ticket_type_id, @event.ticket_types.map{|u| [u.name, u.id]} %><br />
+  <div class="row">
+    <div class="col-md-11 col-md-offset-1">
+      <table class="table">
+        <th>Ticket Type</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
 
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
+        <% @event.ticket_types.each do |type| %>
+        <tr>
+          <td>
+            <%= type.name %>
+            <div class="alert alert-info">
+              (<%= pluralize type.remaining_quantity, 'ticket' %> available)
+            </div>
+          </td>
+          <td> <%= number_to_currency(type.price, unit: 'VND', precision: 0) %></td>
+          <td>
+            <%= form_for @ticket do |f| %>
+              <%= f.hidden_field :ticket_type_id, value: type.id %>
+              <%= f.select :quantity, 0..type.max_quantity  %>
+              <%= f.submit "Buy", class: "btn btn-success btn-lg btn-block" %>
+            <% end %>
+        </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-md-2 col-md-offset-5">
@@ -33,4 +56,3 @@
     </div>
   <div>
 </div>
-<% end %>

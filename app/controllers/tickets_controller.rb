@@ -18,8 +18,8 @@ class TicketsController < ApplicationController
       flash[:success] = "Tickets purchased. Thank You!"
       redirect_to root_path
     else
-      flash[:error] = "Error! Please try again."
-      render 'new'
+      flash[:error] = "Cannot purchase ticket: #{@ticket.errors.full_messages.to_sentence}"
+      redirect_back fallback_location: root_path
     end
   end
 
@@ -37,6 +37,6 @@ class TicketsController < ApplicationController
 
   private
   def ticket_params
-    params.require(:ticket).permit(:name, :price, :event_id, :quantity, :ticket_type_id)
+    params.require(:ticket).permit(:quantity, :ticket_type_id)
   end
 end

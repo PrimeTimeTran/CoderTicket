@@ -2,6 +2,9 @@ class EventsController < ApplicationController
 #   before_action :require_login, only: [:new, :edit, :update, :publish]
 
   def index
+    @events = Event.where()
+
+
     if params[:search]
       @events = Event.where(['name ILIKE ?', "%#{params[:search]}%"])
     else
