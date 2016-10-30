@@ -8,11 +8,7 @@
   <link rel="icon" href="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTEGK4hYeA4TnyTajY4DTWhdaJxNb2mDb8VFde0LXNRGSqQSf8m">
 </head>
 <body>
-    <%= flash_messages %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+  <nav class="navbar navbar-dark bg-inverse">
     <a class="navbar-brand" href="<%= root_path %>">Coder Ticket</a>
       <div class="navbar-right">
         <ul class="nav navbar-nav">
@@ -39,7 +35,7 @@
           <% end %>
       </ul>
   </nav>
-
+  <%= flash_messages %>
 <%= yield %>
 
 </body>

@@ -3,8 +3,8 @@
 CoderTicket is a Ruby on Rails application that allows users to create and buy tickets to cool events.
 
 - Submitted by: PrimeTimeTran
-- Time spent: **X** hours
-- URL: **Insert your Heroku URL here**
+- Time spent: **15** hours
+- URL: **https://salty-badlands-77102.herokuapp.com/**
 - SimpleCov Test Coverage: [coverage/index.html][coverage][index.html]
 
 ## User Stories
@@ -24,14 +24,14 @@ The person with best test coverage will win a small present from the instructor 
         * Implement `/upcoming` route test to go to 'events#index'
         * Implement `Event.upcoming` class method (with a test)
         * Implement `EventsController#index` action test
-* [ ] Users can search for events from the homepage.
-* [ ] Users can click on an event to see details about the event.
-* [ ] Users can click on "Book Now" to go to a page to purchase tickets.
+* [x] Users can search for events from the homepage.
+* [x] Users can click on an event to see details about the event.
+* [x] Users can click on "Book Now" to go to a page to purchase tickets.
 
 #### Tickets
 
 * [x] Each event can have multiple types of tickets, each with a different `price` and `max_quantity`.
-* [ ] Users can buy tickets to an event, choose the types of tickets, and the quantity of tickets.
+* [x] Users can buy tickets to an event, choose the types of tickets, and the quantity of tickets.
 * [ ] Users cannot buy more tickets than the quantity available.
 * [ ] Users can only buy up to 10 of a ticket type at a time. Show a nice flash message.
 

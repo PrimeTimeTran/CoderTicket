@@ -1,0 +1,31 @@
+<%= form_for @order, url: new_order_event_path, method: :get do |f| %>
+    <div class="row">
+      <div class="col-md-11 col-md-offset-1">
+        <table class="table">
+          <th> Ticket Type </th>
+          <th> Unit Price </th>
+          <th> Quantity </th>
+
+          <% @event.ticket_types.each do |type| %>
+          <tr>
+            <td> <%= type.name %> </td>
+            <td> <%= number_to_currency(type.price, unit: 'VND ', precision: 0) %> </td>
+          <!-- Restrict buyer to buy more than max ticket type -->
+            <% if type.max_quantity <= 10 %>
+              <td> <%= select_tag "quantity[#{type.id}]", options_for_select(0..type.max_quantity) %></td>
+            <% else %>
+              <td> <%= select_tag "quantity[#{type.id}]", options_for_select(0..10) %></td>
+            <% end %>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-md-offset-5">
+        <button type="submit" class="btn btn-success btn-lg btn-block"> Buy </button>
+      </div>
+    <div>
+  </div>
+  <% end %>

@@ -9,5 +9,5 @@ module ApplicationHelper
         content_tag(:button, 'x'.html_safe, class: 'close', data: {dismiss: 'alert'}) + message
       end
     end.join.html_safe
-  end  
+  end
 end
