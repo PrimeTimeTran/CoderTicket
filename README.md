@@ -67,9 +67,18 @@ The person with best test coverage will win a small present from the instructor 
 * [ ] Events are automatically labeled as "Hot". "Hot" events should have a red border or some sort of visual flourish. The event title should also be prefixed with "**HOT:**".
 * [ ] Instead of showing all of the events on the main page, an "admin" user can dictate the events that show up on the main page.
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+![Video Walkthrough](walkthrough.gif)
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+Everything. I don't understand the MVC well enough. I'm just trying to keep it 100%. It seems as if "abstractly" I know what's suppose to happen but in reality I don't. I feel like I need lots and lots of more practice
 
 ## License
 
