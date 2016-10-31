@@ -3,11 +3,11 @@
 #
 
 # Create Regions
-['Ho Chi Minh', 'Ha Noi', 'Binh Thuan', 'Da Nang', 'Lam Dong'].each do |r|
+['Ho Chi Minh', 'Ha Noi', 'Binh Thuan', 'Da Nang', 'Lam Dong', 'Florida'].each do |r|
   Region.create(name: r)
 end
 # Create Categories
-['Entertainment', 'Learning', 'Everything Else'].each do |c|
+['Entertainment', 'Learning', 'Everything Else', 'Family'].each do |c|
   Category.create(name: c)
 end
 
@@ -21,9 +21,9 @@ dalat = Venue.create({
 })
 
 e = Event.create({
-  name: 'Việt Nam Thử Thách Chiến Thắng', 
-  starts_at: DateTime.parse('Fri, 11 Mar 2016 7:00 AM+0700'),
-  ends_at: DateTime.parse('Sun, 13 Mar 2016 3:00 PM+0700'),
+  name: 'Việt Nam Thử Thách Chiến Thắng',
+  starts_at: 3.days.ago,
+  ends_at: 2.days.ago,
   venue: dalat,
   category: Category.find_by(name: 'Everything Else'),
   hero_image_url: 'https://az810747.vo.msecnd.net/eventcover/2015/10/25/C6A1A5.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
@@ -49,11 +49,11 @@ dan_venue = Venue.create({
 })
 
 e = Event.create({
-  name: 'Cảm ơn Đời - Live Concert Đan Trường', 
+  name: 'Cảm ơn Đời - Live Concert Đan Trường',
   venue: dan_venue,
   category: Category.find_by(name: 'Entertainment'),
-  starts_at: DateTime.parse('Sat, 16 Jan 2016, 8:00 PM+0700'),
-  ends_at: DateTime.parse('Sat, 16 Jan 2016, 10:30 PM+0700'),  
+  starts_at: 4.years.from_now,
+  ends_at: 5.years.from_now,
   hero_image_url: 'https://az810747.vo.msecnd.net/eventcover/2015/12/11/C68636.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
   extended_html_description: <<-DESC
   <p style="text-align:justify"> </p>
@@ -109,7 +109,7 @@ e = Event.create({
   <p style="text-align:justify"> </p>
 
                           </div>
-                          
+
                           <!--/agenda-->
                       </div>
                   </div>
@@ -133,8 +133,8 @@ gap = Venue.create({
 
 e = Event.create({
   name: 'Merry Christmas Never Alone',
-  starts_at: DateTime.parse('Thu, 24 Dec 2015, 8:00 PM+0700'),
-  ends_at: DateTime.parse('Thu, 24 Dec 2015, 11:00 PM+0700'),
+  starts_at: 5.years.from_now,
+  ends_at: 6.years.from_now,
   venue: gap,
   category: Category.find_by(name: 'Entertainment'),
   hero_image_url:'https://az810747.vo.msecnd.net/eventcover/2015/12/12/78534E.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
@@ -154,7 +154,38 @@ e = Event.create({
   <span style="background-color:rgb(255, 255, 255); color:rgb(20, 24, 35); font-family:helvetica,arial,sans-serif; font-size:14px">Ngo&agrave;i ra c&ograve;n nhiều Voucher tặng bạn v&ocirc; c&ugrave;ng hấp dẫn :D</span></p>
 
                         </div>
-                        
+
   DESC
-})  
+})
 e.ticket_types << TicketType.create(name: 'General', price: 99000, max_quantity: 1000)
+
+
+#4th event test date time
+dalat = Venue.create({
+  name: 'Tallahassee Florida',
+  full_address: '2405 Nugget Lane',
+  region: Region.find_by(name: 'Lam Dong')
+})
+
+e = Event.create({
+  name: 'Just Remembering Home',
+  starts_at: 2.years.from_now,
+  ends_at: 3.years.from_now,
+  venue: dalat,
+  category: Category.find_by(name: 'Everything Else'),
+  hero_image_url: 'https://scontent-hkg3-1.xx.fbcdn.net/t31.0-8/10974754_10152637386187555_333213754819004512_o.jpg',
+  extended_html_description: <<-DESC
+    <p style="text-align:center"><span style="font-size:20px">Random Photo of us from Cuong's Wedding</span></p>
+    <p style="text-align:center"><span style="font-size:20px">Tons of cool information about when this will be!</span></p>
+    <p style="text-align:center"><span style="font-size:16px"><span style="font-family:arial,helvetica,sans-serif">Việt Nam Th</span>Just some random text</span></p>
+    <p style="text-align:center"><span style="font-size:16px">Some more random text</span></p>
+    <p style="text-align:center"><span style="font-size:16px">Do tell, now," cried Bildad, "is this Philistine a regular member of Deacon Deuteronomy's meeting? I never saw him going there, and I pass it every Lord's day."
+    "I don't know anything about Deacon Deuteronomy or his meeting," said I; "all I know is, that Queequeg here is a born member of the First Congregational Church. He is a deacon himself, Queequeg is."
+    "Young man," said Bildad sternly, "thou art skylarking with me—explain thyself, thou young Hittite. What church dost thee mean? answer me."
+    Finding myself thus hard pushed, I replied. "I mean, sir, the same ancient Catholic Church to which you and I, and Captain Peleg there, and Queequeg here, and all of us, and every mother's son and soul of us belong; the great and everlasting First Congregation of this whole worshipping world; we all belong to that; only some of us cherish some queer crotchets no ways touching the grand belief; in THAT we all join hands.</span></p>
+    <p style="text-align:center"><span style="font-size:16px"><strong><span style="background-color:transparent; color:rgb(0, 0, 0)">www.PrimeTimeTran.com. </span></strong></span></p>
+  DESC
+})
+e.ticket_types << TicketType.create(name: 'VIP', price: 500000, max_quantity: 95)
+e.ticket_types << TicketType.create(name: 'Regular', price: 2000000, max_quantity: 5)
+e.ticket_types << TicketType.create(name: 'TranFam', price: 100000, max_quantity: 5)

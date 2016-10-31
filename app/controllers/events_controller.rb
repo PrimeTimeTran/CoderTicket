@@ -2,13 +2,10 @@ class EventsController < ApplicationController
 #   before_action :require_login, only: [:new, :edit, :update, :publish]
 
   def index
-    @events = Event.where()
-
-
     if params[:search]
       @events = Event.where(['name ILIKE ?', "%#{params[:search]}%"])
     else
-      @events = Event.all
+      @events = Event.upcoming
     end
   end
 
@@ -18,10 +15,12 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @venues = Venue.all
+    @category = Category.all
   end
 
   def create
-    @event = current_user.events.build(event_params)
+    @event = Event.new event_params
       if @event.save
         flash[:success] = "Event created successfully"
         redirect_to root_path

@@ -7,7 +7,7 @@ RSpec.describe Event, type: :model do
     end
 
     it "return [] when there are only past events" do
-      Event.create!(starts_at: 2.days.ago, ends_at: 1.day.ago, extended_html_description: " a past event",
+      Event.create!(starts_at: 2.days.ago, ends_at: 1.day.ago, extended_html_description: "a past event",
                 venue: Venue.new, category: Category.new)
       expect(Event.upcoming).to eq []
     end
