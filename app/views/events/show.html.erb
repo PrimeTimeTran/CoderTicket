@@ -19,6 +19,12 @@
         <%= link_to new_event_ticket_path(@event) do %>
           <button class='btn btn-lg btn-block btn-danger'> BOOK NOW </button>
         <% end %>
+        
+        <% if current_user.present? %>
+          <% if current_user.id == @event.user_id %>
+            <%= link_to "Edit Event", edit_event_url(@event), class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="col-md-9 event-content">
@@ -47,7 +53,6 @@
         <div class="extended-description">
           <%= @event.extended_html_description.html_safe %>
         </div>
-
       </div>
     </div>
   </div>

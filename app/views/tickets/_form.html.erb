@@ -1,0 +1,10 @@
+<h1>Tickets</h1>
+  <%= form_for @ticket, url: {controller: "ticket", action: "create"} do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+    <%= f.label :price %>
+    <%= number_field(:product, :price, in: 1.0..20.0) %>
+    <%= f.submit "Create Ticket", :class => "btn btn-primary" %>
+  <% end %>

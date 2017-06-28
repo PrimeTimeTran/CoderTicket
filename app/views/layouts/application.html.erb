@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CsTemplate</title>
+  <title>Rails Book Ticket</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="icon" href="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTEGK4hYeA4TnyTajY4DTWhdaJxNb2mDb8VFde0LXNRGSqQSf8m">
 </head>
-<body>
-  <nav class="navbar navbar-dark bg-inverse">
-    <a class="navbar-brand" href="<%= root_path %>">Coder Ticket</a>
-      <div class="navbar-right">
-        <ul class="nav navbar-nav">
-          <li>
+  <body>
+    <nav class="navbar navbar-dark bg-inverse">
+      <a class="navbar-brand" href="<%= root_path %>">
+        Rails Book Ticket
+      </a>
+        <div class="navbar-right">
+          <ul class="nav navbar-nav">
+            <li>
             <% if user_signed_in? %>
-              <li>
-                <%= link_to "Log Out", destroy_user_session_path, class: 'nav-link', method: :delete %>
-              </li>
-              <li>
-                <%= link_to "New Event", new_event_path, class: 'nav-link', method: :get %>
-              </li>
-          </li>
+                <li class="nav-item">
+                  <%= link_to "Log Out", destroy_user_session_path, class: 'nav-link', method: :delete %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "New Event", new_event_path, class: 'nav-link', method: :get %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Edit Events", events_path, class: 'nav-link', method: :get %>
+                </li>
+            <% else %>
+                <li class="nav-item">
+                  <%= link_to "Log In", new_user_session_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link'  %>
+                </li>
+            <% end %>
+            </li>
         </ul>
       </div>
+    </nav>
+    <%= flash_messages %>
+  <%= yield %>
 
-        <% else %>
-        <ul>
-          <li class="nav-item">
-            <%= link_to "Log In", new_user_session_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link'  %>
-          </li>
-          <% end %>
-      </ul>
-  </nav>
-  <%= flash_messages %>
-<%= yield %>
-
-</body>
+  </body>
 </html>

@@ -20,8 +20,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new event_params
-    @venue = Venue.new
-
       if @event.save
         flash[:success] = "Event created successfully"
         redirect_to root_path
@@ -33,7 +31,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-
+    @ticket = Ticket.new(event: @event)
     unless current_user.id == @event.user_id
       flash[:error] = 'You must be the creator to edit this event'
       redirect_to event_path(@event)

@@ -1,6 +1,8 @@
 # Homework 3 - *CoderTicket*
 
-CoderTicket is a Ruby on Rails application that allows users to create and buy tickets to cool events.
+Ruby on Rails application that allows people to create events, tickets, and venues in order to have parties or celebrations.
+
+Users can also search through events, purchase tickets, and review their accounts.
 
 - Submitted by: PrimeTimeTran
 - Time spent: **15** hours

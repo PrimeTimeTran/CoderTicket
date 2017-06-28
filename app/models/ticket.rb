@@ -1,4 +1,5 @@
 class Ticket < ApplicationRecord
+  belongs_to :event
   belongs_to :ticket_type
   # belongs_to :User, => class_name: "User"
 
