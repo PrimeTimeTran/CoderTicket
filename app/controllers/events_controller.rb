@@ -16,11 +16,12 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @venues = Venue.all
-    @category = Category.all
   end
 
   def create
     @event = Event.new event_params
+    @venue = Venue.new
+
       if @event.save
         flash[:success] = "Event created successfully"
         redirect_to root_path

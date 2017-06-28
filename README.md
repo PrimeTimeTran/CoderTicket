@@ -4,7 +4,7 @@ CoderTicket is a Ruby on Rails application that allows users to create and buy t
 
 - Submitted by: PrimeTimeTran
 - Time spent: **15** hours
-- URL: **https://salty-badlands-77102.herokuapp.com/**
+- URL:
 - SimpleCov Test Coverage: [coverage/index.html][coverage][index.html]
 
 ## User Stories
@@ -39,14 +39,14 @@ The person with best test coverage will win a small present from the instructor 
 
 * [x] User can sign up by providing their email, password, and name.
 * [x] User can login using an email and password.
-* [ ] Users can create events.
+* [x] Users can create events.
 * [ ] Users must click "publish event" before an event becomes viewable to other users.
     * **HINT**: use `published_at:datetime` and `Event.published` scope (class method)
     * Suggestions:
         * See [Add More RESTful Actions](http://guides.rubyonrails.org/routing.html#adding-more-restful-actions) to add a `publish` POST action (member type)
         * Write a test to make sure only an event creator can publish an event
 * [ ] Users can create ticket types for that event.
-    * **HINT**: make sure you understand what a ticket tpe is. Ask if not clear.
+    * **HINT**: make sure you understand what a ticket type is. Ask if not clear.
 * [ ] Users can create venues.
 * [ ] An event must have at least one `ticket_type` defined before it can be published.
     * **HINT**: add `Event#have_enough_ticket_types?` (and test it)

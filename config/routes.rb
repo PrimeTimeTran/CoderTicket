@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "upcoming" => "events#index"
   resources :tickets
+  resources :venues
 
   devise_for :users
     root 'events#index'
@@ -10,6 +11,6 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :tickets
+    resources :ticket_types
   end
-
 end
