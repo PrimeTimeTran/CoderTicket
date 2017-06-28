@@ -1,0 +1,10 @@
+<h1>Create Ticket</h1>
+  <%= form_for [@event, @ticket_type] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :max_quantity %>
+    <%= f.number_field :max_quantity %>
+    <%= f.label :price %>
+    <%= f.number_field(:price, in: 1.0..100.0) %>
+    <%= f.submit "Create Ticket", :class => "btn btn-primary" %>
+  <% end %>

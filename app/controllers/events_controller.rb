@@ -31,7 +31,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    @ticket = Ticket.new(event: @event)
+    @ticket_type = TicketType.new(event: @event)
     unless current_user.id == @event.user_id
       flash[:error] = 'You must be the creator to edit this event'
       redirect_to event_path(@event)
