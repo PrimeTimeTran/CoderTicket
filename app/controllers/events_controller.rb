@@ -49,13 +49,28 @@ class EventsController < ApplicationController
      end
   end
 
+  def publish
+    @event = Event.find(params[:id])
+    @event.mark_as_published!
+    @event.save
+    flash[:success] = 'Event Published'
+    redirect_back(fallback_location: event_path(@event))
+  end
+
+  def unpublish
+    @event = Event.find(params[:id])
+    @event.unpublish
+    @event.save
+    flash[:notice] = 'Event Unpublished'
+    redirect_back(fallback_location: event_path(@event))
+  end
+
   private
-    def event_params
-      params.require(:event).permit(:starts_at, :ends_at, :venue_id, :hero_image_url, :extended_html_description, :category_id, :name)
-    end
+  def event_params
+    params.require(:event).permit(:starts_at, :ends_at, :venue_id, :hero_image_url, :extended_html_description, :category_id, :name)
+  end
 
-    def my_events
-      @events = Event.where(user_id: current_user.id)
-    end
-
+  def my_events
+    @events = Event.where(user_id: current_user.id)
+  end
 end

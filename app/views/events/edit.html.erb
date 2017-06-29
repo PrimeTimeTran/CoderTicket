@@ -30,12 +30,18 @@
   		</div>
   		<div class="form-group">
         <%= f.label :event_description %>:
-  		  <%= f.text_area :extended_html_description,  id: "url", placeholder: "Description", :class => "form-control" %>
+  		  <%= f.text_area :extended_html_description,  id: "url", placeholder: "Description", :class => "form-control", size: "30x20" %>
   		</div>
   		<div class="form-action">
   		  <%= f.submit "Save Event", :class => "btn btn-primary" %>
   		</div>
   	<% end %>
+
+    <% if @event.published_at %>
+      <%= link_to "Unpublish Event", unpublish_event_path(@event), method: :post, class: "btn btn-danger" %>
+    <% else %>
+      <%= link_to "Publish Event", publish_event_path(@event), method: :post, class: "btn btn-success" %>
+    <% end %>
     <%= render 'tickets/ticket_type' %>
 	</div>
 </div>
