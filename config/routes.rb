@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'users' => 'users#index'
 
   resources :events do
+    get 'mine', on: :collection
     post 'publish', on: :member
     post 'unpublish', on: :member
     resources :tickets

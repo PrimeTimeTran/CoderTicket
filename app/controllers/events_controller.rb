@@ -20,6 +20,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new event_params
+    @event.user_id = current_user.id
       if @event.save
         flash[:success] = "Event created successfully"
         redirect_to root_path
@@ -51,10 +52,15 @@ class EventsController < ApplicationController
 
   def publish
     @event = Event.find(params[:id])
-    @event.mark_as_published!
-    @event.save
-    flash[:success] = 'Event Published'
-    redirect_back(fallback_location: event_path(@event))
+    if @event.ticket_types.empty?
+      flash[:error] = 'Must create tickets for the venue before publishing!'
+      redirect_back(fallback_location: event_path(@event))
+    else
+      @event.mark_as_published!
+      @event.save
+      flash[:success] = 'Event Published'
+      redirect_back(fallback_location: event_path(@event))
+    end
   end
 
   def unpublish
@@ -63,6 +69,10 @@ class EventsController < ApplicationController
     @event.save
     flash[:notice] = 'Event Unpublished'
     redirect_back(fallback_location: event_path(@event))
+  end
+
+  def mine
+    @events = Event.where(user_id: current_user.id)
   end
 
   private
