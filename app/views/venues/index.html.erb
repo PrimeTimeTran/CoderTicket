@@ -1,4 +1,22 @@
 <div class="container">
-  <h1>Venues#index</h1>
-  <p>Find me in app/views/venues/index.html.erb</p>
+  <h2>Contextual Classes</h2>
+  <p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Region</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @venues.each do |v| %>
+      <tr class="warning">
+        <td><%= v.name %></td>
+        <td><%= v.full_address %></td>
+        <td><%= v.region_id %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
