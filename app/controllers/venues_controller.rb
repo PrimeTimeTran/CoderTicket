@@ -22,11 +22,11 @@ class VenuesController < ApplicationController
   end
 
   def edit
-    @venue = Venue.find(:venue_id)
+    @venue = Venue.find(params[:id])
   end
 
   private
   def venue_params
-    params.require(:venue).permit(:name, :full_address, :region_id, :venue_id)
+    params.require(:venue).permit(:name, :full_address, :region_id)
   end
 end
