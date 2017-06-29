@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
+  devise_for :admins
   get "upcoming" => "events#index"
   resources :tickets
   resources :venues
+  resources :users
 
   devise_for :users
     root 'events#index'

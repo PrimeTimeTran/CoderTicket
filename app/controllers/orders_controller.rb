@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
     @order.event = Event.find(params[:event_id])
   end
 
-
   private
   def order_params
     params.require(:order).permit(:name, :phone, :address)

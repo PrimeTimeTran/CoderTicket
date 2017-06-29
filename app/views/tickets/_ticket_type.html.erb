@@ -5,6 +5,6 @@
     <%= f.label :max_quantity %>
     <%= f.number_field :max_quantity %>
     <%= f.label :price %>
-    <%= f.number_field(:price, in: 1.0..100.0) %>
+    <%= f.number_field(:price, in: 10.0..1000.0) %>
     <%= f.submit "Create Ticket", :class => "btn btn-primary" %>
   <% end %>

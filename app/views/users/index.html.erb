@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Users</h2>
+  <p>Listing of all users on the Rails Book Ticket platform.</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sign In Count</th>
+        <th>Email</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |u| %>
+      <tr>
+        <td><%= u.sign_in_count %></td>
+        <td><%= u.email %></td>
+        <td><%= u.admin? %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
