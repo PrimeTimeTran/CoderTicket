@@ -49,7 +49,7 @@ The person with best test coverage will win a small present from the instructor 
         * Write a test to make sure only an event creator can publish an event
 * [x] Users can create ticket types for that event.
     * **HINT**: make sure you understand what a ticket type is. Ask if not clear.
-* [ ] Users can create venues.
+* [x] Users can create venues.
 * [ ] An event must have at least one `ticket_type` defined before it can be published.
     * **HINT**: add `Event#have_enough_ticket_types?` (and test it)
 * [ ] User can see a list of events he or she has created.
@@ -77,10 +77,6 @@ Here's a walkthrough of implemented user stories:
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
-
-Describe any challenges encountered while building the app.
-
-Everything. I don't understand the MVC well enough. I'm just trying to keep it 100%. It seems as if "abstractly" I know what's suppose to happen but in reality I don't. I feel like I need lots and lots of more practice
 
 ## License
 

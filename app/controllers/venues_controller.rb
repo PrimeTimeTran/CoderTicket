@@ -9,18 +9,24 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.create(venue_params)
-    flash[:success] = "Venue Created!"
-    redirect_to root_path
+    if @venue.save
+      flash[:success] = "Venue Created!"
+      redirect_to root_path
+    else
+      flash[:error] = @venue.errors.full_messages.to_sentence
+      redirect_back fallback_location: root_path
+    end
   end
 
   def show
   end
 
   def edit
+    @venue = Venue.find(:venue_id)
   end
 
   private
   def venue_params
-    params.require(:venue).permit(:name, :full_address, :region_id)
+    params.require(:venue).permit(:name, :full_address, :region_id, :venue_id)
   end
 end
