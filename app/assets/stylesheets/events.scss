@@ -7,6 +7,8 @@
   padding-bottom: 80px;
   width: 100%;
   color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
   h2 {
     font-size: 26px;
     font-weight: bold;
@@ -54,7 +56,7 @@
 }
 
 .events-list {
-    margin-top: 20px;
+    margin-top: 0;
     padding: 30px 150px;
     background-color: $gray-lighter;
     .card {

@@ -3,30 +3,31 @@
 #
 
 # Create Regions
-['Ho Chi Minh', 'Ha Noi', 'Binh Thuan', 'Da Nang', 'Lam Dong', 'Florida'].each do |r|
-  Region.create(name: r)
+['North East', 'West Coast', 'South East', 'Deep South'].each do |r|
+  Region.create!(name: r)
 end
 # Create Categories
-['Entertainment', 'Learning', 'Everything Else', 'Family'].each do |c|
-  Category.create(name: c)
+['Entertainment', 'Learning', 'Family', 'Tech', 'Everything Else', 'Sporting'].each do |c|
+  Category.create!(name: c)
 end
 
-# First event:
-# Việt Nam Thử Thách Chiến Thắng
-
-dalat = Venue.create({
-  name: 'Da Lat City',
-  full_address: 'Ngoc Phat Hotel 10 Hồ Tùng Mậu Phường 3, Thành phố Đà Lạt, Lâm Đồng, Thành Phố Đà Lạt, Lâm Đồng',
-  region: Region.find_by(name: 'Lam Dong')
+###########
+# Event One
+###########
+madison_square = Venue.create!({
+  name: 'Madison Square Garden',
+  full_address: Faker::Address.street_address,
+  region: Region.find_by(name: 'North East')
 })
 
-e = Event.create({
-  name: 'Việt Nam Thử Thách Chiến Thắng',
-  starts_at: 3.days.ago,
-  ends_at: 2.days.ago,
-  venue: dalat,
+e = Event.create!({
+  name: Faker::Name.title,
+  starts_at: 1.year.from_now,
+  ends_at: 1.year.from_now,
+  venue: madison_square,
   category: Category.find_by(name: 'Everything Else'),
-  hero_image_url: 'https://az810747.vo.msecnd.net/eventcover/2015/10/25/C6A1A5.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
+  hero_image_url: 'https://www.nycgo.com/images/venues/98/madisonsquaregarden-courtesymsg-b70005-rtw__x_large.jpg',
+  card_description: Faker::Lorem.paragraph,
   extended_html_description: <<-DESC
     <p style="text-align:center"><span style="font-size:20px">VIỆT NAM THỬ THÁCH CHIẾN THẮNG 2016</span></p>
     <p style="text-align:center"><span style="font-size:20px">Giải đua xe đạp địa hình 11-13/03/2016</span></p>
@@ -36,25 +37,27 @@ e = Event.create({
     <p style="text-align:center"><span style="font-size:16px"><strong><span style="background-color:transparent; color:rgb(0, 0, 0)">www.vietnamvictorychallenge.com. </span></strong></span></p>
   DESC
 })
-e.ticket_types << TicketType.create(name: '2016 Việt Nam Thử Thách Chiến Thắng dành cho những tay đua đăng kí sớm.', price: 500000, max_quantity: 95)
-e.ticket_types << TicketType.create(name: 'Việt Nam Thử Thách Chiến Thắng ( Giá chính thức)', price: 2000000, max_quantity: 5)
+e.ticket_types << TicketType.create(name: 'Regular', price: 99, max_quantity: 1000)
+e.ticket_types << TicketType.create(name: 'Gold', price: 150, max_quantity: 500)
+e.ticket_types << TicketType.create(name: 'Diamond', price: 250, max_quantity: 100)
 
-
-# Second event:
-# Dan Truong
+###########
+# Event Two
+###########
 dan_venue = Venue.create({
-  name: 'Sân vận động quân khu 7',
-  full_address: '202 Hoàng Văn Thụ, Quận Tân Bình, Hồ Chí Minh',
-  region: Region.find_by(name: 'Ho Chi Minh')
+  name: 'Hollywood Bowl',
+  full_address: Faker::Address.street_address,
+  region: Region.find_by(name: 'West Coast')
 })
 
 e = Event.create({
-  name: 'Cảm ơn Đời - Live Concert Đan Trường',
+  name: Faker::Name.title,
   venue: dan_venue,
   category: Category.find_by(name: 'Entertainment'),
   starts_at: 4.years.from_now,
   ends_at: 5.years.from_now,
-  hero_image_url: 'https://az810747.vo.msecnd.net/eventcover/2015/12/11/C68636.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
+  hero_image_url: 'http://cdn.abclocal.go.com/content/kabc/images/cms/1756437_1280x720.jpg',
+  card_description: Faker::Lorem.paragraph,
   extended_html_description: <<-DESC
   <p style="text-align:justify"> </p>
 
@@ -117,26 +120,29 @@ e = Event.create({
   DESC
 })
 
-e.ticket_types << TicketType.create(name: 'Vé loại A', price: 500000, max_quantity: 10)
-e.ticket_types << TicketType.create(name: 'Vé loại B', price: 300000, max_quantity: 50)
-e.ticket_types << TicketType.create(name: 'Vé loại C', price: 200000, max_quantity: 100)
-e.ticket_types << TicketType.create(name: 'Vé loại D', price: 150000, max_quantity: 200)
+e.ticket_types << TicketType.create(name: 'General', price: 50, max_quantity: 10000)
+e.ticket_types << TicketType.create(name: 'Gold', price: 100, max_quantity: 2500)
+e.ticket_types << TicketType.create(name: 'Diamond', price: 200, max_quantity: 1000)
+e.ticket_types << TicketType.create(name: 'VIP', price: 500, max_quantity: 500)
 
-# Third event - Merry Christmas Never Alone
+###########
+# Event Three
+###########
 
-gap = Venue.create({
-  name: 'Gap Yolo Hanoi',
-  full_address: '1B Quốc Tử Giám, Quận Đống Đa, Hà Nội',
-  region: Region.find_by(name: 'Ha Noi')
+gap = Venue.create!({
+  name: 'Radio City Music Hall',
+  full_address: Faker::Address.street_address,
+  region: Region.find_by(name: 'North East')
   })
 
-e = Event.create({
-  name: 'Merry Christmas Never Alone',
+e = Event.create!({
+  name: Faker::Name.title,
   starts_at: 5.years.from_now,
   ends_at: 6.years.from_now,
   venue: gap,
   category: Category.find_by(name: 'Entertainment'),
-  hero_image_url:'https://az810747.vo.msecnd.net/eventcover/2015/12/12/78534E.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
+  hero_image_url:'http://cruiselinehistory.com/wp-content/uploads/2009/10/rcmh_interior491_.jpg',
+  card_description: Faker::Lorem.paragraph,
   extended_html_description: <<-DESC
          <p>
   <span style="background-color:rgb(255, 255, 255); color:rgb(20, 24, 35); font-family:helvetica,arial,sans-serif; font-size:14px">* Bạn một m&igrave;nh, bạn FA ?</span><br />
@@ -156,23 +162,28 @@ e = Event.create({
 
   DESC
 })
-e.ticket_types << TicketType.create(name: 'General', price: 99000, max_quantity: 1000)
+e.ticket_types << TicketType.create(name: 'General', price: 50, max_quantity: 5000)
+e.ticket_types << TicketType.create(name: 'Box', price: 100, max_quantity: 1000)
+e.ticket_types << TicketType.create(name: 'Floor', price: 1000, max_quantity: 500)
+e.ticket_types << TicketType.create(name: 'Stage', price: 2000, max_quantity: 250)
 
-
-#4th event test date time
-dalat = Venue.create({
-  name: 'Tallanasty',
+###########
+# Event Four
+###########
+dalat = Venue.create!({
+  name: 'Doak Campbell Stadium',
   full_address: '2405 Nugget Lane',
-  region: Region.find_by(name: 'Lam Dong')
+  region: Region.find_by(name: 'South East')
 })
 
-e = Event.create({
-  name: 'Just Remembering Home',
+e = Event.create!({
+  name: 'Garnet & Gold Game',
   starts_at: 2.years.from_now,
   ends_at: 3.years.from_now,
   venue: dalat,
-  category: Category.find_by(name: 'Everything Else'),
-  hero_image_url: 'https://scontent-hkg3-1.xx.fbcdn.net/t31.0-8/10974754_10152637386187555_333213754819004512_o.jpg',
+  category: Category.find_by(name: 'Sporting'),
+  hero_image_url: 'http://www.tallahasseeseminoleclub.com/wp-content/uploads/2015/07/doak021009.jpg',
+  card_description: 'The Florida State Athletics Department announced the events surrounding the Sun Trust Football Spring Weekend presented by the Florida Restaurant and Lodging Association and Visit Florida on Thursday.',
   extended_html_description: <<-DESC
     <p style="text-align:center"><span style="font-size:20px">Random Photo of us from Cuong's Wedding</span></p>
     <p style="text-align:center"><span style="font-size:20px">Tons of cool information about when this will be!</span></p>
@@ -185,6 +196,6 @@ e = Event.create({
     <p style="text-align:center"><span style="font-size:16px"><strong><span style="background-color:transparent; color:rgb(0, 0, 0)">www.PrimeTimeTran.com. </span></strong></span></p>
   DESC
 })
-e.ticket_types << TicketType.create(name: 'VIP', price: 500000, max_quantity: 95)
-e.ticket_types << TicketType.create(name: 'Regular', price: 2000000, max_quantity: 5)
-e.ticket_types << TicketType.create(name: 'TranFam', price: 100000, max_quantity: 5)
+e.ticket_types << TicketType.create(name: 'Standard', price: 20, max_quantity: 10000)
+e.ticket_types << TicketType.create(name: 'Premium', price: 99, max_quantity: 5000)
+e.ticket_types << TicketType.create(name: 'TranFam', price: 999, max_quantity: 250)

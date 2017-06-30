@@ -1,5 +1,5 @@
 module EventsHelper
   def header_background_image_url
-    "https://az810058.vo.msecnd.net/site/global/Content/img/home-search-bg-0#{rand(6)}.jpg"
+    "https://media-cdn.tripadvisor.com/media/photo-o/04/41/2e/d2/halong-bay-vietnam.jpg"
   end
 end

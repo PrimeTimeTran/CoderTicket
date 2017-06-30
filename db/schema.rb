@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630070557) do
+ActiveRecord::Schema.define(version: 20170630072041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170630070557) do
     t.text     "card_description"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.string   "image"
     t.index ["category_id"], name: "index_events_on_category_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
     t.index ["venue_id"], name: "index_events_on_venue_id", using: :btree
