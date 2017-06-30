@@ -3,7 +3,7 @@
     <h2> Discover upcoming events </h2>
       <%= form_tag(root_path, :method => "get", class: "form-horizontal") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-        <%= submit_tag "Search", class: "btn btn-outline-success" %>
+        <%= submit_tag "Search", class: "btn btn-success" %>
       <% end %>
   </div>
 </div>
@@ -16,5 +16,22 @@
         <% end %>
       </div>
     <% end %>
+  </div>
+</div>
+<div class="quote-box">
+  <div class="quote-text">
+    <i class="fa fa-quote-left"> </i><span id="text"></span>
+  </div>
+  <div class="quote-author">
+    - <span id="author"></span>
+  </div>
+  <div class="buttons">
+    <a class="button" id="tweet-quote" title="Tweet this quote!" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+     <a class="button" id="tumblr-quote" title="Post this quote on tumblr!" target="_blank">
+      <i class="fa fa-tumblr"></i>
+    </a>
+    <button class="button" id="new-quote">New quote</button>
   </div>
 </div>

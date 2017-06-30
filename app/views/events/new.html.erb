@@ -6,40 +6,59 @@
   <div class="alert alert-danger"><%= @event.errors.full_messages.to_sentence %></div>
 <% end %>
 
-<div class="container">
-  <div class="form-inputs">
-  	<%= form_for @event, url: events_path do |f| %>
-  		<div class="form-group">
-        <%= f.label :name %>:
-  		  <%= f.text_field :name, placeholder: "Name", :class => "form-control" %>
-  		</div>
-  		<div class="form-group">
-        <%= f.label :venue %>:
-        <% venues = Venue.all.map {|venue| [venue.name, venue.id]} %>
-        <%= f.select(:venue_id, options_for_select(venues)) %>&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= f.label :category %>:
-        <% categories = Category.all.map {|category| [category.name, category.id]} %>
-        <%= f.select(:category_id, options_for_select(categories)) %>
-  		</div>
-  		<div class="form-group">
-        <%= f.label :start_date %>:
-  		  <%= f.date_field :starts_at, placeholder: "Starts At" , :class => "form-control"%>
-  		</div>
-  		<div class="form-group">
-        <%= f.label :end_date %>:
-  		  <%= f.date_field :ends_at, placeholder: "End At", :class => "form-control" %>
-  		</div>
-  		<div class="form-group">
-        <%= f.label :image_url %>:
-  		  <%= f.text_field :hero_image_url, placeholder: "Hero Image URL", :class => "form-control" %>
-  		</div>
-  		<div class="form-group">
-        <%= f.label :event_description %>:
-  		  <%= f.text_area :extended_html_description,  id: "url", placeholder: "Description", :class => "form-control" %>
-  		</div>
-  		<div class="form-action">
-  		  <%= f.submit "Save Event", :class => "btn btn-primary" %>
-  		</div>
-  	<% end %>
-	</div>
+<button class="btn btn-success" id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>New Event Information</h3>
+    <hr id="hr">
+    <div class="container">
+      <div class="form-inputs">
+      	<%= form_for @event, url: events_path do |f| %>
+      		<div class="form-group">
+            <%= f.label :name %>:
+      		  <%= f.text_field :name, placeholder: "Name", :class => "form-control" %>
+      		</div>
+      		<div class="form-group">
+            <%= f.label :venue %>:
+            <% venues = Venue.all.map {|venue| [venue.name, venue.id]} %>
+            <%= f.select(:venue_id, options_for_select(venues)) %>&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= f.label :category %>:
+            <% categories = Category.all.map {|category| [category.name, category.id]} %>
+            <%= f.select(:category_id, options_for_select(categories)) %>
+      		</div>
+      		<div class="form-group">
+            <%= f.label :start_date %>:
+      		  <%= f.date_field :starts_at, :class => "form-control"%>
+      		</div>
+          <div class="form-group">
+            <%= f.label :start_time %>:
+            <%= f.time_select :starts_at, :class => "form-control"%>
+          </div>
+      		<div class="form-group">
+            <%= f.label :end_date %>:
+      		  <%= f.date_field :ends_at, :class => "form-control" %>
+      		</div>
+          <div class="form-group">
+            <%= f.label :end_time %>:
+            <%= f.time_select :ends_at, :class => "form-control"%>
+          </div>
+      		<div class="form-group">
+            <%= f.label :image_url %>:
+      		  <%= f.text_field :hero_image_url, placeholder: "Hero Image URL", :class => "form-control" %>
+      		</div>
+      		<div class="form-group">
+            <%= f.label :event_description %>:
+      		  <%= f.text_area :extended_html_description,  id: "url", placeholder: "Description", :class => "form-control" %>
+      		</div>
+      		<div class="form-action">
+      		  <%= f.submit "Save Event", :class => "btn btn-primary" %>
+      		</div>
+      	<% end %>
+    	</div>
+    </div>
+  </div>
 </div>

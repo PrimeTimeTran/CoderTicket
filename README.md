@@ -5,7 +5,7 @@ Ruby on Rails application that allows people to create events, tickets, and venu
 Users can also search through events, purchase tickets, and review their accounts.
 
 - Submitted by: PrimeTimeTran
-- Time spent: **15** hours
+- Time spent: **25** hours
 - URL:
 - SimpleCov Test Coverage: [coverage/index.html][coverage][index.html]
 
