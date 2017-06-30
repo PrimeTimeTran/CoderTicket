@@ -17,7 +17,7 @@
     <hr id="hr">
     <div class="container">
       <div class="form-inputs">
-      	<%= form_for @event, url: events_path do |f| %>
+      	<%= form_for @event, html: { multipart: true }  ,url: events_path do |f| %>
       		<div class="form-group">
             <%= f.label :name %>:
       		  <%= f.text_field :name, placeholder: "Name", :class => "form-control" %>

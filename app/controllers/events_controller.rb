@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
 #   before_action :require_login, only: [:new, :edit, :update, :publish]
-
   def index
     if params[:search]
       @events = Event.where(['name ILIKE ?', "%#{params[:search]}%"])
@@ -77,7 +76,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:starts_at, :ends_at, :venue_id, :hero_image_url, :extended_html_description, :category_id, :name)
+    params.require(:event).permit(:starts_at, :ends_at, :venue_id, :hero_image_url, :extended_html_description, :category_id, :name, :image)
   end
 
   def my_events

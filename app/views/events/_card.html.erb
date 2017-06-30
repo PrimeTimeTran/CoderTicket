@@ -1,7 +1,11 @@
 <div class="col-md-4">
   <%= link_to event_path(event) do %>
     <div class="card">
+      <% if event.hero_image_url %>
       <img class="card-img-top" src="<%= event.hero_image_url %>">
+      <% else %>
+      <img class="card-img-top" src="<%= event.image.url %>">
+      <% end %>
       <div class="card-block">
         <h4 class="card-title"><%= event.name %></h4>
           <p>
