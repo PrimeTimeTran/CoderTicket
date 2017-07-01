@@ -6,5 +6,4 @@ class TicketType < ActiveRecord::Base
     # max_quantity - tickets.size # Works
     max_quantity - tickets.sum{|t| t.quantity}
   end
-
 end
