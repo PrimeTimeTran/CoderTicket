@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'tickets/show' => 'tickets#show'
   get 'users/sign_out' => 'sessions#destroy'
   get 'users' => 'users#index'
-
+  resources :orders
   resources :events do
     get 'mine', on: :collection
     post 'publish', on: :member

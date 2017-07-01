@@ -6,12 +6,12 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @ticket = Ticket.create(order_params)
     @order = Order.new(order_params)
-    @order.event = Event.find(params[:event_id])
   end
 
   private
   def order_params
-    params.require(:order).permit(:name, :phone, :address)
+    params.require(:order).permit(:name, :phone, :address, :ticket_type_id, :quantity)
   end
 end

@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   has_many :ticket_types
 
   validate :ends_at_after_starts_at, :future_date
-  validates_presence_of :extended_html_description, :venue, :category, :starts_at
+  validates_presence_of :extended_html_description, :venue, :category, :starts_at, :ends_at
   validates_uniqueness_of :name, uniqueness: {scope: [:venue, :starts_at]}
 
   def self.upcoming
@@ -15,11 +15,11 @@ class Event < ActiveRecord::Base
   end
 
   def ends_at_after_starts_at
-    unless starts_at < ends_at
+    if starts_at > ends_at
       errors.add(:ending_date, "can't be before starting date.")
     end
   end
-  
+
   def future_date
     if starts_at < Time.now
       errors.add(:starting_date, "must be in the future.")
