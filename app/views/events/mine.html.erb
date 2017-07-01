@@ -13,15 +13,25 @@
         <th>Creator</th>
         <th>Begins</th>
         <th>Ends</th>
+        <th>Edit Event</th>
+        <th>Open?</th>
       </tr>
     </thead>
     <tbody>
       <% @events.each do |e| %>
       <tr>
         <td><%= e.name %></td>
-        <td><%= e.user_id %></td>
+        <td><%= e.user.email %></td>
         <td><%= e.starts_at.to_formatted_s(:long_ordinal) %></td>
         <td><%= e.ends_at.to_formatted_s(:long_ordinal) %></td>
+        <td><%= link_to "Edit Event", edit_event_url(e), class: 'btn btn-primary' %></td>
+        <td>
+          <% if e.published_at %>
+            <%= link_to "Unpublish Event", unpublish_event_path(e), method: :post, class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to "Publish Event", publish_event_path(e), method: :post, class: "btn btn-success" %>
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>

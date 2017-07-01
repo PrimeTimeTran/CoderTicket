@@ -16,7 +16,10 @@ class TicketTypesController < ApplicationController
     @ticket_type = TicketType.create(ticket_type_params)
     @ticket_type.event_id = @event.id
     @ticket_type.save
-    redirect_to root_path
+    if @ticket_type.save
+      flash[:success] = "Created Ticket Type"
+      redirect_back(fallback_location: @event)
+    end
   end
 
   private

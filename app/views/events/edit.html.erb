@@ -4,52 +4,52 @@
 <div class="container">
   <div class="form-inputs">
   	<%= form_for @event do |f| %>
-  		<div class="form-group">
-        <%= f.label :name %>:
-  		  <%= f.text_field :name, placeholder: "Name", :class => "form-control" %>
-  		</div>
-  		<div class="form-group">
-        <%= f.label :venue %>:
-        <% venues = Venue.all.map {|venue| [venue.name, venue.id]} %>
-        <%= f.select(:venue_id, options_for_select(venues)) %>&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= f.label :category %>:
-        <% categories = Category.all.map {|category| [category.name, category.id]} %>
-        <%= f.select(:category_id, options_for_select(categories)) %>
-  		</div>
-  		<div class="form-group">
-        <%= f.label :start_date %>:
-  		  <%= f.date_field :starts_at, placeholder: "Starts At" , :class => "form-control"%>
-  		</div>
-  		<div class="form-group">
-        <%= f.label :end_date %>:
-  		  <%= f.date_field :ends_at,:class => "form-control" %>
-  		</div>
-      <div class="form-group">
-        <%= f.label :start_time %>:
-  		  <%= f.time_select :start_time, placeholder: "Start Time" , :class => "form-control"%>
-  		</div>
-  		<div class="form-group">
-        <%= f.label :end_time %>:
-  		  <%= f.time_select :end_time,:class => "form-control" %>
-  		</div>
-      <div class="field">
-        <%= f.label :image %><br>
-        <%= f.file_field :image %>
-      </div>
-  		<div class="form-group">
-        <%= f.label :event_description %>:
-  		  <%= f.text_area :extended_html_description, id: "url", placeholder: "Description", :class => "form-control", size: "30x20" %>
-  		</div>
-  		<div class="form-action">
-  		  <%= f.submit "Save Event", :class => "btn btn-primary" %>
-  		</div>
+    <div class="form-group">
+      <%= f.label :name %>:
+      <%= f.text_field :name, placeholder: "Name", :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :venue %>:
+      <% venues = Venue.all.map {|venue| [venue.name, venue.id]} %>
+      <%= f.select(:venue_id, options_for_select(venues), {:prompt => 'Please Select Venue'},  {class: "form-control"}) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :category %>:
+      <% categories = Category.all.map {|category| [category.name, category.id]} %>
+      <%= f.select(:category_id, options_for_select(categories), {:prompt => 'Please Select Category'},  {class: "form-control"}) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :start_date %>:
+      <%= f.date_field :starts_at, :class => "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :start_time %>:
+      <%= f.time_select :start_time, :class => "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :end_date %>:
+      <%= f.date_field :ends_at, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :end_time %>:
+      <%= f.time_select :end_time, :class => "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :card_description %>:
+      <%= f.text_area :card_description,  id: "url", placeholder: "A summary of the event", :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :event_description %>:
+      <%= f.text_area :extended_html_description,  id: "url", placeholder: "A Complete description with all details", :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+    </div>
+    <div class="form-action">
+      <%= f.submit "Update Event", :class => "btn btn-primary" %>
+    </div>
   	<% end %>
-
-    <% if @event.published_at %>
-      <%= link_to "Unpublish Event", unpublish_event_path(@event), method: :post, class: "btn btn-danger" %>
-    <% else %>
-      <%= link_to "Publish Event", publish_event_path(@event), method: :post, class: "btn btn-success" %>
-    <% end %>
     <%= render 'tickets/ticket_type' %>
 	</div>
 </div>
