@@ -1,29 +1,22 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Lois/Desktop/Win/CoderTicket/spec/models/event_spec.rb": [
+      "/Users/Lois/Desktop/win/hw3/spec/features/events_spec.rb": [
         1,
         null,
         1,
         1,
         1,
         1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/spec/rails_helper.rb": [
+      "/Users/Lois/Desktop/win/hw3/spec/rails_helper.rb": [
         null,
         1,
         1,
         null,
+        1,
         1,
         1,
         1,
@@ -78,14 +71,14 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/environment.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/application.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/application.rb": [
         1,
         null,
         1,
@@ -113,7 +106,7 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/boot.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/boot.rb": [
         1,
         null,
         1,
@@ -129,7 +122,7 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/environments/test.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/environments/test.rb": [
         1,
         null,
         null,
@@ -173,7 +166,7 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/assets.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -186,7 +179,7 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/backtrace_silencers.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -195,12 +188,15 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/cookies_serializer.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/carrier_wave.rb": [
+        1
+      ],
+      "/Users/Lois/Desktop/win/hw3/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/devise.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/devise.rb": [
         null,
         null,
         1,
@@ -476,13 +472,13 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/filter_parameter_logging.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/inflections.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -500,18 +496,18 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/mime_types.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/session_store.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/simple_form.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/simple_form.rb": [
         null,
         1,
         null,
@@ -678,7 +674,7 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/simple_form_bootstrap.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/simple_form_bootstrap.rb": [
         null,
         1,
         1,
@@ -829,7 +825,7 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/initializers/wrap_parameters.rb": [
+      "/Users/Lois/Desktop/win/hw3/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -845,11 +841,7 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/config/routes.rb": [
-        1,
-        1,
-        1,
-        null,
+      "/Users/Lois/Desktop/win/hw3/config/routes.rb": [
         1,
         1,
         1,
@@ -857,12 +849,23 @@
         1,
         null,
         1,
-        1,
         null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/app/models/user.rb": [
+      "/Users/Lois/Desktop/win/hw3/app/models/admin.rb": [
         1,
         null,
         null,
@@ -870,12 +873,22 @@
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/app/models/application_record.rb": [
+      "/Users/Lois/Desktop/win/hw3/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/app/helpers/application_helper.rb": [
+      "/Users/Lois/Desktop/win/hw3/app/models/user.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/Lois/Desktop/win/hw3/app/helpers/application_helper.rb": [
         1,
         1,
         0,
@@ -886,27 +899,135 @@
         0,
         0,
         null,
+        1,
+        null,
+        null
+      ],
+      "/Users/Lois/Desktop/win/hw3/app/helpers/events_helper.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Lois/Desktop/win/hw3/app/helpers/orders_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Lois/Desktop/win/hw3/app/helpers/ticket_types_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Lois/Desktop/win/hw3/app/helpers/tickets_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Lois/Desktop/win/hw3/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Lois/Desktop/win/hw3/app/helpers/venues_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Lois/Desktop/win/hw3/app/controllers/events_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        0,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
         0,
         null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/app/helpers/events_helper.rb": [
+      "/Users/Lois/Desktop/win/hw3/app/controllers/application_controller.rb": [
         1,
-        1,
-        0,
         null,
-        null
-      ],
-      "/Users/Lois/Desktop/Win/CoderTicket/app/helpers/orders_helper.rb": [
+        null,
         1,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/app/helpers/tickets_helper.rb": [
+      "/Users/Lois/Desktop/win/hw3/app/models/event.rb": [
         1,
-        null
-      ],
-      "/Users/Lois/Desktop/Win/CoderTicket/app/models/event.rb": [
         1,
+        null,
         1,
         1,
         1,
@@ -914,13 +1035,10 @@
         null,
         1,
         1,
+        1,
         null,
         1,
-        2,
-        null,
-        null,
         1,
-        0,
         null,
         null,
         1,
@@ -928,23 +1046,80 @@
         0,
         null,
         null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
         null
       ],
-      "/Users/Lois/Desktop/Win/CoderTicket/app/models/venue.rb": [
+      "/Users/Lois/Desktop/win/hw3/app/uploaders/image_uploader.rb": [
         1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         1,
         1,
         null,
         null,
-        null
-      ],
-      "/Users/Lois/Desktop/Win/CoderTicket/app/models/category.rb": [
+        null,
+        null,
         1,
-        1,
-        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ]
     },
-    "timestamp": 1477823513
+    "timestamp": 1498967912
   }
 }

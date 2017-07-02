@@ -37,6 +37,8 @@ gem 'font-kit-rails', '~> 1.2.0'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '~> 4.3'
 gem 'faker', '~> 1.7', '>= 1.7.3'
+gem 'capybara'
+gem 'factory_girl'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
