@@ -42,12 +42,9 @@
               <%= number_to_currency(TicketType.find_by(id: type.ticket_type_id).price, unit: '$', precision: 0) %>
             </td>
             <td>
-              <%= f.fields_for :ticket do |t| %>
-              <fieldset>
-                <%= t.label :ticket %>
+              <%= fields_for :ticket, @order.tickets do |t| %>
                 <%= t.hidden_field :ticket_type_id, value: type.ticket_type_id %>
                 <%= t.number_field :quantity %>
-              </fieldset>
               <% end %>
             </td>
           </tr>

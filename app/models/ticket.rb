@@ -15,7 +15,5 @@ class Ticket < ApplicationRecord
     if ticket_type && quantity && quantity > ticket_type.remaining_quantity
       errors.add(:quantity, "can't be greater than #{ticket_type.remaining_quantity} remaining tickets")
     end
-
   end
-
 end

@@ -10,7 +10,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
     @event = Event.find(params[:event_id])
     @order = current_user.orders.build
-    @order.tickets = @event.ticket_types.map { |e| Ticket.new(event_id: @event.id, ticket_type_id: e.id, name: e.name, price: e.price)  }
+    @order.tickets = @event.ticket_types.map { |e| Ticket.new(event_id: @event.id, ticket_type_id: e.id, name: e.name, price: e.price, quantity: e.max_quantity)  }
   end
 
   def create
