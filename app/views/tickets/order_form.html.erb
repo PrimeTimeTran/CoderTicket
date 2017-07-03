@@ -1,0 +1,37 @@
+<%= form_for @order do |f| %>
+<div class="row">
+  <div class="col-md-11 col-md-offset-1">
+    <table class="table">
+       <thead>
+        <tr>
+          <th>Ticket Type</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+        <tr>
+      </thead>
+      <tbody>
+      <% @order.tickets.each do |type| %>
+        <tr>
+          <td>
+            <div class="alert alert-info">
+              <%= type.name %> (<%= pluralize TicketType.find_by(id: type.ticket_type_id).remaining_quantity, 'ticket' %> available)
+            </div>
+          </td>
+          <td>
+            <%= number_to_currency(TicketType.find_by(id: type.ticket_type_id).price, unit: '$', precision: 0) %>
+          </td>
+          <td>
+            <%= fields_for :ticket, @order.tickets do |t| %>
+
+              <%= t.number_field :quantity %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= f.submit "Buy", class: "btn btn-success btn-lg btn-block" %>
+<% end %>

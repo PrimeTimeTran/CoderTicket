@@ -7,21 +7,20 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = Ticket.new
     @event = Event.find(params[:event_id])
-    @order = current_user.orders.build
-    @order.tickets = @event.ticket_types.map { |e| Ticket.new(event_id: @event.id, ticket_type_id: e.id, name: e.name, price: e.price, quantity: e.max_quantity)  }
+    @order = Order.new(event: @event)
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
-
-    if @ticket.save
-      flash[:success] = "Tickets purchased. Thank You!"
-      redirect_to root_path
+    @event = Event.find(params[:event_id])
+    @order = Order.new(ticket_params)
+    if @order.tickets.any?
+      @order.save
+      flash[:success] = "Tickets have been purchase successfully"
+      redirect_to event_path(@event)
     else
-      flash[:error] = "Cannot purchase ticket: #{@ticket.errors.full_messages.to_sentence}"
-      redirect_back fallback_location: root_path
+      flash[:error] = "Ticket number should be greater than 0"
+      redirect_back(fallback_location: event_path(@event))
     end
   end
 
@@ -39,6 +38,6 @@ class TicketsController < ApplicationController
 
   private
   def ticket_params
-    params.require(:ticket).permit(:quantity, :ticket_type_id)
+    params.require(:order).permit(tickets_attributes: [:quantity, :ticket_type_id, :order_id])
   end
 end
